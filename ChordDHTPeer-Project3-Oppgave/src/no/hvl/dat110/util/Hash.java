@@ -56,16 +56,12 @@ public class Hash {
 		// compute the number of bits = digest length * 8
 		// compute the address size = 2 ^ number of bits
 		// return the address size
-		try {
 		
 			int length = bitSize();
 			BigInteger size = new BigInteger("2").pow(length);
 			
 			return size;
-			
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
+		
 	}
 
 	public static int bitSize() {
