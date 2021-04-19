@@ -51,16 +51,21 @@ public class Hash {
 	public static BigInteger addressSize() {
 
 		// Task: compute the address size of MD5
-
-		// get the digest length
-
-		// compute the number of bits = digest length * 8
-
-		// compute the address size = 2 ^ number of bits
-
-		// return the address size
 		
-		return null;
+		// get the digest length
+		// compute the number of bits = digest length * 8
+		// compute the address size = 2 ^ number of bits
+		// return the address size
+		try {
+		
+			int length = bitSize();
+			BigInteger size = new BigInteger("2").pow(length);
+			
+			return size;
+			
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static int bitSize() {
