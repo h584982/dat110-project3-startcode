@@ -59,6 +59,7 @@ public class Hash {
 		// compute the address size = 2 ^ number of bits
 
 		// return the address size
+		
 		return null;
 	}
 
@@ -67,6 +68,11 @@ public class Hash {
 		int digestlen = 0;
 
 		// find the digest length
+		try {
+			digestlen = MessageDigest.getInstance("MD5").getDigestLength();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
 
 		return digestlen * 8;
 	}
