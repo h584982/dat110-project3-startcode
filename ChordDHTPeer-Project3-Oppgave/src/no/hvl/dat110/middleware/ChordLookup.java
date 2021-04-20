@@ -62,6 +62,17 @@ public class ChordLookup {
 		
 		// if logic returns true, then return the finger (means finger is the closest to key)
 		
+		List<NodeInterface> fTable = node.getFingerTable();
+		
+		NodeInterface nodeStub;
+		
+		for(int i = fTable.size(); i > 0; i--) {
+			nodeStub = Util.getProcessStub(fTable.get(i).getNodeName(), fTable.get(i).getPort());
+			if(Util.computeLogic(nodeStub.getNodeID(), node.getNodeID().add(BigInteger.ONE), key.subtract(BigInteger.ONE))) {
+				return nodeStub;
+			}
+		}
+		
 		return (NodeInterface) node;			
 	}
 	
