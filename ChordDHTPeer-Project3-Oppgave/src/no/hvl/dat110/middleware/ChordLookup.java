@@ -46,7 +46,7 @@ public class ChordLookup {
 		Boolean cond = Util.computeLogic(key, node.getNodeID().add(new BigInteger("1")), succStub.getNodeID());
 		
 		if (cond) {
-			return succStub;
+			return succ;
 		} else {
 			NodeInterface highestPred = findHighestPredecessor(key);
 			return highestPred.findSuccessor(key);
@@ -76,7 +76,7 @@ public class ChordLookup {
 		
 		NodeInterface nodeStub;
 		
-		for(int i = fTable.size(); i > 0; i--) {
+		for(int i = fTable.size()-1; i >= 0; i--) {
 			nodeStub = Util.getProcessStub(fTable.get(i).getNodeName(), fTable.get(i).getPort());
 			if(Util.computeLogic(nodeStub.getNodeID(), node.getNodeID().add(BigInteger.ONE), key.subtract(BigInteger.ONE))) {
 				return nodeStub;
